@@ -50,6 +50,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /** Created by aleksandr shmaraev on 10.12.15 */
+@Test(invocationCount = 5)
 public class NavigateToFileTest {
   private static final String PROJECT_NAME = "NavigateFile";
   private static final String PROJECT_NAME_2 = "NavigateFile_2";
