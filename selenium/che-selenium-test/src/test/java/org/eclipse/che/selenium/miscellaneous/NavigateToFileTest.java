@@ -21,12 +21,17 @@ import static org.testng.Assert.fail;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
+import org.apache.commons.io.FileUtils;
+import org.eclipse.che.selenium.core.SeleniumWebDriver;
 import org.eclipse.che.selenium.core.client.TestCommandServiceClient;
 import org.eclipse.che.selenium.core.client.TestProjectServiceClient;
+import org.eclipse.che.selenium.core.utils.WaitUtils;
 import org.eclipse.che.selenium.core.workspace.TestWorkspace;
 import org.eclipse.che.selenium.pageobject.CodenvyEditor;
 import org.eclipse.che.selenium.pageobject.Ide;
@@ -35,6 +40,8 @@ import org.eclipse.che.selenium.pageobject.Menu;
 import org.eclipse.che.selenium.pageobject.NavigateToFile;
 import org.eclipse.che.selenium.pageobject.ProjectExplorer;
 import org.eclipse.che.selenium.pageobject.intelligent.CommandsPalette;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -62,6 +69,7 @@ public class NavigateToFileTest {
   @Inject private TestProjectServiceClient testProjectServiceClient;
   @Inject private TestCommandServiceClient testCommandServiceClient;
   @Inject private CommandsPalette commandsPalette;
+  @Inject private SeleniumWebDriver seleniumWebDriver;
 
   @BeforeClass
   public void setUp() throws Exception {
@@ -157,6 +165,15 @@ public class NavigateToFileTest {
     launchNavigateToFileFromUIAndTypeValue(navigatingValue);
     navigateToFile.waitSuggestedPanel();
     waitExpectedItemsInNavigateToFileDropdown(expectedItems);
+
+    try {
+      File source = ((TakesScreenshot) seleniumWebDriver).getScreenshotAs(OutputType.FILE);
+      FileUtils.copyFile(source, new File("./target/screenshots/" + source.getName()));
+    } catch (IOException ex) {
+      System.out.println(ex.getMessage());
+    }
+
+    WaitUtils.sleepQuietly(2);
 
     try {
       navigateToFile.selectFileByName(dropdownVerificationPath);
