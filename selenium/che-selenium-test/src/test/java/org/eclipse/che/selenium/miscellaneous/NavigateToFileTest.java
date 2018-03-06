@@ -50,7 +50,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /** Created by aleksandr shmaraev on 10.12.15 */
-@Test(invocationCount = 5)
 public class NavigateToFileTest {
   private static final String PROJECT_NAME = "NavigateFile";
   private static final String PROJECT_NAME_2 = "NavigateFile_2";
@@ -92,20 +91,20 @@ public class NavigateToFileTest {
     projectExplorer.waitItem(PROJECT_NAME_2);
   }
 
-  @Test(dataProvider = "dataForCheckingTheSameFileInDifferentProjects")
+  @Test(dataProvider = "dataForCheckingTheSameFileInDifferentProjects", invocationCount = 10)
   public void shouldNavigateToFileForFirstProject(
       String inputValueForChecking, Map<Integer, String> expectedValues) {
     // Open the project one and check function 'Navigate To File'
     launchNavigateToFileAndCheckResults(inputValueForChecking, expectedValues, 1);
   }
 
-  @Test(dataProvider = "dataForCheckingTheSameFileInDifferentProjects")
+  @Test(dataProvider = "dataForCheckingTheSameFileInDifferentProjects", invocationCount = 10)
   public void shouldDoNavigateToFileForSecondProject(
       String inputValueForChecking, Map<Integer, String> expectedValues) {
     launchNavigateToFileAndCheckResults(inputValueForChecking, expectedValues, 2);
   }
 
-  @Test(dataProvider = "dataToNavigateToFileCreatedOutsideIDE")
+  @Test(dataProvider = "dataToNavigateToFileCreatedOutsideIDE", invocationCount = 10)
   public void shouldNavigateToFileWithJustCreatedFiles(
       String inputValueForChecking, Map<Integer, String> expectedValues) throws Exception {
 
@@ -129,7 +128,7 @@ public class NavigateToFileTest {
     assertTrue(navigateToFile.getText().isEmpty());
   }
 
-  @Test(dataProvider = "dataToCheckNavigateByNameWithSpecialSymbols")
+  @Test(dataProvider = "dataToCheckNavigateByNameWithSpecialSymbols", invocationCount = 10)
   public void shouldDisplayFilesFoundByMask(
       String inputValueForChecking, Map<Integer, String> expectedValues) {
     launchNavigateToFileFromUIAndTypeValue(inputValueForChecking);
