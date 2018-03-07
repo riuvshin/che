@@ -167,7 +167,7 @@ public class NavigateToFileTest {
     navigateToFile.waitSuggestedPanel();
     waitExpectedItemsInNavigateToFileDropdown(expectedItems);
 
-    String filename = NameGenerator.generate("NavigateToFile", 4) + ".png";
+    String filename = NameGenerator.generate("NTF_" + dropdownVerificationPath + "_", 4) + ".png";
     try {
       byte[] data = seleniumWebDriver.getScreenshotAs(OutputType.BYTES);
       Path screenshot = Paths.get("./target/screenshots/", filename);
