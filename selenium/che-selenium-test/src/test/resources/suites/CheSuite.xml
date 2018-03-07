@@ -19,14 +19,9 @@
     <test name="all">
       <classes>
           <class name="org.eclipse.che.selenium.miscellaneous.NavigateToFileTest"/>
-          <class name="org.eclipse.che.selenium.miscellaneous.NavigateToFileTest"/>
-          <class name="org.eclipse.che.selenium.miscellaneous.NavigateToFileTest"/>
-          <class name="org.eclipse.che.selenium.miscellaneous.NavigateToFileTest"/>
-          <class name="org.eclipse.che.selenium.miscellaneous.NavigateToFileTest"/>
-          <class name="org.eclipse.che.selenium.miscellaneous.NavigateToFileTest"/>
-          <class name="org.eclipse.che.selenium.miscellaneous.NavigateToFileTest"/>
-          <class name="org.eclipse.che.selenium.miscellaneous.NavigateToFileTest"/>
-          <class name="org.eclipse.che.selenium.miscellaneous.NavigateToFileTest"/>
-        </classes>
+          <class name="org.eclipse.che.selenium.miscellaneous.FindTextFeatureTest"/>
+          <class name="org.eclipse.che.selenium.workspaces.ProjectStateAfterRenameWorkspaceTest"/>
+          <class name="org.eclipse.che.selenium.workspaces.ProjectStateAfterRefreshTest"/>
+          </classes>
     </test>
 </suite>

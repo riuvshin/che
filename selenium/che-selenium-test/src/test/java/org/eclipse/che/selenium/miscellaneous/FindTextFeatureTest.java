@@ -98,7 +98,7 @@ public class FindTextFeatureTest {
     findTextPage.closeFindTextFormByEscape();
   }
 
-  @Test
+  @Test(invocationCount = 10)
   public void checkRecentlyCreatedFiles() throws Exception {
     String expectedText1 =
         format(
@@ -176,7 +176,7 @@ public class FindTextFeatureTest {
     editor.closeAllTabsByContextMenu();
   }
 
-  @Test
+  @Test(invocationCount = 10)
   public void checkFindTextBasic() {
     String expectedText =
         format(
@@ -272,7 +272,7 @@ public class FindTextFeatureTest {
     editor.closeAllTabsByContextMenu();
   }
 
-  @Test
+  @Test(invocationCount = 10)
   public void checkFindWholeWordOnly() {
     String expectedText =
         format(
@@ -314,7 +314,7 @@ public class FindTextFeatureTest {
     findTextPage.waitExpectedTextInFindInfoPanel("No results found for\n'uess'\n");
   }
 
-  @Test
+  @Test(invocationCount = 10)
   public void checkFindIntoSelectedPath() {
     String path1 = PROJECT_NAME + "/my-webapp/src/main/java/org/eclipse/qa/examples";
     String expectedText1 =
@@ -366,7 +366,7 @@ public class FindTextFeatureTest {
     findTextPage.waitExpectedTextInFindInfoPanel(asList(expectedText2.split("\n")));
   }
 
-  @Test
+  @Test(invocationCount = 10)
   public void checkFindByFileMask() {
     String expectedText1 =
         format(
@@ -416,7 +416,7 @@ public class FindTextFeatureTest {
     findTextPage.waitExpectedTextInFindInfoPanel(asList(expectedText2.split("\n")));
   }
 
-  @Test
+  @Test(invocationCount = 10)
   public void checkTextResultsPagination() {
     SearchFileResult searchFileResult;
     int sumOfFoundOccurrences = 0;

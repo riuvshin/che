@@ -49,7 +49,7 @@ public class ProjectStateAfterRefreshTest {
     ide.open(workspace);
   }
 
-  @Test
+  @Test(invocationCount = 10)
   public void checkRestoreStateOfProjectAfterRefreshTest() {
     ide.waitOpenedWorkspaceIsReadyToUse();
     projectExplorer.waitItem(PROJECT_NAME);
@@ -72,7 +72,7 @@ public class ProjectStateAfterRefreshTest {
     editor.closeAllTabsByContextMenu();
   }
 
-  @Test
+  @Test(invocationCount = 10)
   public void checkRestoreStateOfProjectIfPomXmlFileOpened() {
     ide.waitOpenedWorkspaceIsReadyToUse();
     projectExplorer.waitItem(PROJECT_NAME);

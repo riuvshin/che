@@ -68,7 +68,7 @@ public class ProjectStateAfterRenameWorkspaceTest {
     testWorkspaceServiceClient.delete(WORKSPACE_NEW_NAME, testWorkspace.getOwner().getName());
   }
 
-  @Test
+  @Test(invocationCount = 10)
   public void checkProjectAfterRenameWs() throws Exception {
     ide.waitOpenedWorkspaceIsReadyToUse();
     projectExplorer.waitItem(PROJECT_NAME);
