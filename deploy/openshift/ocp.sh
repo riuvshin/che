@@ -171,6 +171,7 @@ run_ocp() {
 }
 
 deploy_che_to_ocp() {
+    echo ">>${BASE_DIR}<<"
     bash ${BASE_DIR}/deploy/openshift/deploy_che.sh --wait-che ${DEPLOY_SCRIPT_ARGS}
 }
 
